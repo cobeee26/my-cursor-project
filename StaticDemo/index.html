@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassTrack Pro - Student Portal Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Menu Overlay -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>ClassTrack Pro</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="menu-item" data-section="schedule">
+                    <i class="fas fa-calendar"></i>
+                    <span>Schedule</span>
+                </li>
+                <li class="menu-item" data-section="tasks">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                    <span class="badge">3</span>
+                </li>
+                <li class="menu-item" data-section="tests">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Tests</span>
+                </li>
+                <li class="menu-item" data-section="reports">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Reports</span>
+                </li>
+                <li class="menu-item" data-section="chat">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat</span>
+                </li>
+                <li class="menu-item" data-section="notes">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notes</span>
+                    <span class="badge">2</span>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="footer-menu">
+                    <div class="menu-item" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                    <button class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-navbar">
+            <div class="navbar-content">
+                <div class="navbar-left">
+                    <button class="mobile-menu-btn" id="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <i class="fas fa-bell notification-icon"></i>
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Profile" class="profile-img">
+                    <span class="user-name">Saira Goodman</span>
+                    <i class="fas fa-chevron-down profile-dropdown"></i>
+                </div>
+            </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <!-- Performance Metrics - Three Column Top Section -->
+                <div class="performance-metrics">
+                    <div class="metric-card gpa-card">
+                        <div class="metric-header">
+                            <div class="metric-title">
+                                <span class="metric-icon">📈</span>
+                                <h3>GPA</h3>
+                            </div>
+                            <span class="status-badge high">High</span>
+                        </div>
+                        <div class="metric-value">4.7</div>
+                        <p class="metric-description">Your performance has increased by 2% compared to last semester.</p>
+                    </div>
+                    
+                    <div class="metric-card ontime-card">
+                        <div class="metric-header">
+                            <div class="metric-title">
+                                <span class="metric-icon">⏰</span>
+                                <h3>On-time rate</h3>
+                            </div>
+                            <span class="status-badge high">High</span>
+                        </div>
+                        <div class="metric-value">96%</div>
+                        <p class="metric-description">Your tasks have increased by 10% compared to last semester.</p>
+                    </div>
+
+                    <!-- Class Attendance Card -->
+                    <div class="metric-card attendance-card">
+                        <div class="metric-header">
+                            <div class="metric-title">
+                                <span class="metric-icon">📅</span>
+                                <h3>Class attendance</h3>
+                            </div>
+                            <select class="month-selector">
+                                <option>month</option>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                            </select>
+                        </div>
+                        <div class="attendance-grid">
+                            <div class="attendance-day">
+                                <span class="day-label">M</span>
+                                <div class="attendance-status present">✓</div>
+                            </div>
+                            <div class="attendance-day">
+                                <span class="day-label">T</span>
+                                <div class="attendance-status present">✓</div>
+                            </div>
+                            <div class="attendance-day">
+                                <span class="day-label">W</span>
+                                <div class="attendance-status absent">✗</div>
+                            </div>
+                            <div class="attendance-day">
+                                <span class="day-label">T</span>
+                                <div class="attendance-status present">✓</div>
+                            </div>
+                            <div class="attendance-day">
+                                <span class="day-label">F</span>
+                                <div class="attendance-status present">✓</div>
+                            </div>
+                            <div class="attendance-day">
+                                <span class="day-label">S</span>
+                                <div class="attendance-status no-class">-</div>
+                            </div>
+                            <div class="attendance-day">
+                                <span class="day-label">S</span>
+                                <div class="attendance-status no-class">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section - Two Columns -->
+                <div class="dashboard-bottom">
+                    <!-- My Tasks Card -->
+                    <div class="card tasks-card">
+                        <div class="card-header">
+                            <h3>My tasks</h3>
+                            <div class="task-tabs">
+                                <span class="tab active">All tasks</span>
+                                <span class="tab">To do</span>
+                                <span class="tab">In progress</span>
+                            </div>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="task-content">
+                                    <div class="task-info">
+                                        <h4>Read poem & answer questions</h4>
+                                        <p>English Literature • Apr 28, 2025</p>
+                                    </div>
+                                </div>
+                                <div class="task-status-container">
+                                    <span class="task-status in-progress">In progress</span>
+                                    <span class="task-comments">12 comments</span>
+                                </div>
+                                <div class="task-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-content">
+                                    <div class="task-info">
+                                        <h4>Create a comic strip with a story</h4>
+                                        <p>Social Studies • May 17, 2025</p>
+                                    </div>
+                                </div>
+                                <div class="task-status-container">
+                                    <span class="task-status to-do">To do</span>
+                                    <span class="task-comments">No comments</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">View all tasks</button>
+                    </div>
+
+                    <!-- My Schedule Card -->
+                    <div class="card schedule-card">
+                        <div class="card-header">
+                            <h3>My schedule</h3>
+                            <select class="schedule-selector">
+                                <option>today</option>
+                                <option>tomorrow</option>
+                                <option>this week</option>
+                            </select>
+                        </div>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:00</div>
+                                <div class="schedule-details">
+                                    <h4>Mathematics</h4>
+                                    <p>Dr. Smith</p>
+                                    <span class="schedule-location">Room 101</span>
+                                </div>
+                                <div class="schedule-teacher">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Teacher" class="teacher-avatar">
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">11:00</div>
+                                <div class="schedule-details">
+                                    <h4>Physics</h4>
+                                    <p>Dr. Brown</p>
+                                    <span class="schedule-location">Room 102</span>
+                                </div>
+                                <div class="schedule-teacher">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Teacher" class="teacher-avatar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Section -->
+            <section id="schedule" class="content-section">
+                <div class="section-header">
+                    <h2>Weekly Schedule</h2>
+                    <p>View your classes and manage your time effectively.</p>
+                </div>
+
+                <div class="day-selector">
+                    <button class="day-btn active" data-day="monday">Monday</button>
+                    <button class="day-btn" data-day="tuesday">Tuesday</button>
+                    <button class="day-btn" data-day="wednesday">Wednesday</button>
+                    <button class="day-btn" data-day="thursday">Thursday</button>
+                    <button class="day-btn" data-day="friday">Friday</button>
+                </div>
+
+                <div class="card">
+                    <h3>Monday Classes</h3>
+                    <div class="table-container">
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Time</th>
+                                    <th>Room</th>
+                                    <th>Professor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="subject-item">
+                                            <div class="subject-dot"></div>
+                                            <span>Mathematics</span>
+                                        </div>
+                                    </td>
+                                    <td>09:00-10:30</td>
+                                    <td>Room 101</td>
+                                    <td>Dr. Smith</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="subject-item">
+                                            <div class="subject-dot"></div>
+                                            <span>Physics</span>
+                                        </div>
+                                    </td>
+                                    <td>11:00-12:30</td>
+                                    <td>Room 102</td>
+                                    <td>Dr. Brown</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="content-section">
+                <div class="section-header">
+                    <h2>Tasks & Assignments</h2>
+                    <p>Manage your academic tasks and track your progress.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Total Tasks</p>
+                                <p class="stat-value">3</p>
+                            </div>
+                            <div class="stat-icon">📋</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Pending</p>
+                                <p class="stat-value">2</p>
+                            </div>
+                            <div class="stat-icon">⏳</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Completed</p>
+                                <p class="stat-value">1</p>
+                            </div>
+                            <div class="stat-icon">✅</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Task List</h3>
+                    <div class="task-list">
+                        <div class="task-item">
+                            <div class="task-content">
+                                <div class="task-info">
+                                    <h4>Read poem & answer questions</h4>
+                                    <p>English Literature • Apr 28, 2025</p>
+                                </div>
+                            </div>
+                            <div class="task-status-container">
+                                <span class="task-status in-progress">In progress</span>
+                                <span class="task-comments">12 comments</span>
+                            </div>
+                            <div class="task-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-content">
+                                <div class="task-info">
+                                    <h4>Create a comic strip with a story</h4>
+                                    <p>Social Studies • May 17, 2025</p>
+                                </div>
+                            </div>
+                            <div class="task-status-container">
+                                <span class="task-status to-do">To do</span>
+                                <span class="task-comments">No comments</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-content">
+                                <div class="task-info">
+                                    <h4>Prepare for the math test</h4>
+                                    <p>Math • May 11, 2025</p>
+                                </div>
+                            </div>
+                            <div class="task-status-container">
+                                <span class="task-status to-do">To do</span>
+                                <span class="task-comments">2 comments</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-content">
+                                <div class="task-info">
+                                    <h4>Read the chapter about plant and animal</h4>
+                                    <p>Biology • Apr 22, 2025</p>
+                                </div>
+                            </div>
+                            <div class="task-status-container">
+                                <span class="task-status to-do">To do</span>
+                                <span class="task-comments">1 comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attendance Section -->
+            <section id="attendance" class="content-section">
+                <div class="section-header">
+                    <h2>Attendance Records</h2>
+                    <p>Track your attendance across all subjects.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Overall Attendance</p>
+                                <p class="stat-value">88%</p>
+                            </div>
+                            <div class="stat-icon">📊</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Total Classes</p>
+                                <p class="stat-value">117</p>
+                            </div>
+                            <div class="stat-icon">📚</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Classes Attended</p>
+                                <p class="stat-value">103</p>
+                            </div>
+                            <div class="stat-icon">✅</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Subject-wise Attendance</h3>
+                    <div class="attendance-list">
+                        <div class="attendance-item">
+                            <div class="attendance-info">
+                                <h4>Mathematics</h4>
+                                <p>23 of 25 classes attended</p>
+                            </div>
+                            <div class="attendance-stats">
+                                <span class="attendance-percentage">92%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="attendance-item">
+                            <div class="attendance-info">
+                                <h4>Physics</h4>
+                                <p>21 of 24 classes attended</p>
+                            </div>
+                            <div class="attendance-stats">
+                                <span class="attendance-percentage">88%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="attendance-item">
+                            <div class="attendance-info">
+                                <h4>Chemistry</h4>
+                                <p>21 of 22 classes attended</p>
+                            </div>
+                            <div class="attendance-stats">
+                                <span class="attendance-percentage">95%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h2>Performance Reports</h2>
+                    <p>Track your academic progress and performance insights.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Current GPA</p>
+                                <p class="stat-value">3.25</p>
+                            </div>
+                            <div class="stat-icon">🎓</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Attendance Rate</p>
+                                <p class="stat-value">88%</p>
+                            </div>
+                            <div class="stat-icon">📊</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Tasks Completed</p>
+                                <p class="stat-value">85%</p>
+                            </div>
+                            <div class="stat-icon">✅</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Study Hours</p>
+                                <p class="stat-value">42h</p>
+                            </div>
+                            <div class="stat-icon">⏰</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Performance Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon">📈</div>
+                            <div class="insight-content">
+                                <h4>Performance Improvement</h4>
+                                <p>Your GPA has improved by 0.2 points compared to last semester</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">📊</div>
+                            <div class="insight-content">
+                                <h4>Attendance Trend</h4>
+                                <p>Your attendance is 5% higher than the class average</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">✅</div>
+                            <div class="insight-content">
+                                <h4>Task Completion</h4>
+                                <p>You've completed 85% of assigned tasks on time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tests Section -->
+            <section id="tests" class="content-section">
+                <div class="section-header">
+                    <h2>Tests & Exams</h2>
+                    <p>Manage your upcoming tests and view your results.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Upcoming Tests</p>
+                                <p class="stat-value">2</p>
+                            </div>
+                            <div class="stat-icon">📝</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Average Score</p>
+                                <p class="stat-value">88%</p>
+                            </div>
+                            <div class="stat-icon">📊</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Tests Completed</p>
+                                <p class="stat-value">3</p>
+                            </div>
+                            <div class="stat-icon">✅</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Test Schedule</h3>
+                    <div class="test-list">
+                        <div class="test-item">
+                            <div class="test-info">
+                                <h4>Mathematics Midterm Exam</h4>
+                                <p>Mathematics • Jan 20, 2024 • 9:00 AM</p>
+                            </div>
+                            <span class="test-status upcoming">Upcoming</span>
+                        </div>
+                        <div class="test-item">
+                            <div class="test-info">
+                                <h4>Physics Quiz - Mechanics</h4>
+                                <p>Physics • Jan 15, 2024 • 10:30 AM</p>
+                            </div>
+                            <span class="test-status completed">Completed - 85%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Section -->
+            <section id="chat" class="content-section">
+                <div class="section-header">
+                    <h2>Messages</h2>
+                    <p>Communicate with professors and classmates.</p>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="chat-list">
+                            <div class="chat-item active">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Profile" class="chat-avatar">
+                                <div class="chat-info">
+                                    <h4>Dr. Sarah Wilson</h4>
+                                    <p>Mathematics Professor</p>
+                                    <span class="chat-preview">Please review the assignment guidelines...</span>
+                                </div>
+                                <span class="chat-time">2:30 PM</span>
+                            </div>
+                            <div class="chat-item">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Profile" class="chat-avatar">
+                                <div class="chat-info">
+                                    <h4>Study Group - Physics</h4>
+                                    <p>Group Chat</p>
+                                    <span class="chat-preview">Anyone available for the lab session...</span>
+                                </div>
+                                <span class="chat-time">1:45 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-main">
+                        <div class="chat-header">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Profile" class="chat-avatar">
+                            <div class="chat-user-info">
+                                <h4>Dr. Sarah Wilson</h4>
+                                <p>Mathematics Professor</p>
+                            </div>
+                            <span class="online-status">Online</span>
+                        </div>
+                        
+                        <div class="chat-messages">
+                            <div class="message received">
+                                <p>Hi! I'd be happy to help. What's your question?</p>
+                                <span class="message-time">2:26 PM</span>
+                            </div>
+                            <div class="message sent">
+                                <p>I'm not sure about the formatting requirements for the lab report.</p>
+                                <span class="message-time">2:27 PM</span>
+                            </div>
+                            <div class="message received">
+                                <p>Please review the assignment guidelines before submitting. The format should follow APA style with proper citations.</p>
+                                <span class="message-time">2:30 PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type a message..." class="message-input">
+                            <button class="send-button">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes Section -->
+            <section id="notes" class="content-section">
+                <div class="section-header">
+                    <h2>My Notes</h2>
+                    <p>Organize and manage your study notes.</p>
+                </div>
+
+                <div class="notes-container">
+                    <div class="notes-sidebar">
+                        <div class="notes-search">
+                            <input type="text" placeholder="Search notes..." class="search-input">
+                        </div>
+                        <div class="notes-list">
+                            <div class="note-item active">
+                                <div class="note-color blue"></div>
+                                <div class="note-info">
+                                    <h4>Mathematics - Calculus Derivatives</h4>
+                                    <p>Key concepts for derivatives...</p>
+                                    <span class="note-date">Jan 15, 2024</span>
+                                </div>
+                            </div>
+                            <div class="note-item">
+                                <div class="note-color green"></div>
+                                <div class="note-info">
+                                    <h4>Physics - Newton's Laws</h4>
+                                    <p>Newton's Three Laws of Motion...</p>
+                                    <span class="note-date">Jan 14, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="notes-editor">
+                        <div class="note-header">
+                            <h3>Mathematics - Calculus Derivatives</h3>
+                            <div class="note-actions">
+                                <button class="btn btn-secondary">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="note-content">
+                            <div class="note-text">
+                                <h4>Key concepts for derivatives:</h4>
+                                <ul>
+                                    <li>Power rule: d/dx(x^n) = nx^(n-1)</li>
+                                    <li>Product rule: d/dx(fg) = f'g + fg'</li>
+                                    <li>Chain rule: d/dx(f(g(x))) = f'(g(x)) * g'(x)</li>
+                                </ul>
+                                <h4>Important examples:</h4>
+                                <ul>
+                                    <li>d/dx(x^3) = 3x^2</li>
+                                    <li>d/dx(sin(x)) = cos(x)</li>
+                                    <li>d/dx(e^x) = e^x</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="note-tags">
+                                <h5>Tags</h5>
+                                <div class="tag-list">
+                                    <span class="tag">calculus</span>
+                                    <span class="tag">derivatives</span>
+                                    <span class="tag">math</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                    <p>Manage your account settings and preferences.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Profile Information</h3>
+                    <div class="profile-form">
+                        <div class="profile-image-section">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Profile" class="profile-large">
+                            <button class="btn btn-secondary">Change Photo</button>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Alex Johnson" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="alex.johnson@university.edu" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" value="+1 (555) 123-4567" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Major</label>
+                                <input type="text" value="Computer Science" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Notification Preferences</h3>
+                    <div class="notification-settings">
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h4>Email Notifications</h4>
+                                <p>Receive updates via email</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h4>Push Notifications</h4>
+                                <p>Receive push notifications on your device</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h4>SMS Notifications</h4>
+                                <p>Receive text message updates</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
